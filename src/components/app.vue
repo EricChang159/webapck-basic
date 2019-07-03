@@ -14,4 +14,9 @@ export default {
 }
 </script>
 <style lang="css">
+body{
+    background-image: url('../image/photo.jpg');
+    background-size: cover;
+}
+
 </style>
