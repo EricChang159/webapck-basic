@@ -1,29 +1,24 @@
 const merge = require('webpack-merge')
 const common = require('./webpack.common.js')
-const path = require('path')
 const webpack = require('webpack')
-
-
-// const project = {
-//     name: "app",
-//     entry: "path.join(__dirname, './src/main.js')",
-//     output: "path.join(__dirname, 'dist')"
-//       
-// }
+const path = require('path')
 
 module.exports = merge(common, {
-    mode: "development",
-    entry: path.join(__dirname, './src/main.js'),
+    entry: path.resolve(__dirname, './src/main.js'),
     output: {
-        path: path.join(__dirname, 'dist'),
-        filename: '[name].js',
+        path: path.resolve(__dirname, './dist'),
+        filename: '[name].[hash:8].js',
         publicPath: './'
+
     },
+    mode: "development",
     module: {
         rules: [{
                 test: /\.(sa|sc|c)ss$/,
                 use: [
                     'style-loader',
+                    'cache-loader',
+                    'thread-loader',
                     'css-loader',
                     'postcss-loader',
                     'sass-loader'
@@ -46,10 +41,8 @@ module.exports = merge(common, {
             },
         ]
     },
-    // entry: {
-    //     app: './dist/index.html'
-    // },
-    devtool: 'inline-source-map',
+
+    devtool: 'cheap-module-eval-source-map',
     devServer: {
         contentBase: './dist',
         port: 5000,

@@ -1,15 +1,27 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
-// const path = require('path')
+var SpeedMeasurePlugin = require("speed-measure-webpack-plugin")
+const path = require('path')
+var smp = new SpeedMeasurePlugin()
 
-module.exports = {
-    // entry: path.join(__dirname, './src/main.js'),
-    // output: {
-    //     path: path.join(__dirname, 'dist-pro'),
-    //     filename: '[name].[hash:8].js',
-    //     publicPath: '/'
-    // },
-    mode: 'none',
+//之後有機會的話 可以用這邊的變數
+// project = {
+//     name: 'webpack-Basic-setting',
+//     entry: './src/main.js',
+//     output: {
+//         path: './dist',
+//         filename: '[name].[hash:8].js',
+//         publicPath: '/'
+//     },
+//     publicPath: './',
+//     filename: '[name].[hash:8]',
+//     isVue: true
+// }
+
+
+
+
+module.exports = smp.wrap({
     plugins: [
         new HtmlWebpackPlugin(),
         new VueLoaderPlugin()
@@ -18,16 +30,29 @@ module.exports = {
         rules: [{
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
-                use: {
-                    loader: "babel-loader"
-                }
+                use: [
+                    'cache-loader',
+                    'thread-loader',
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            cacheDirectory: true
+                        },
+                        // include: [resolve('src'), resolve('test')]
+                    }
+                ]
+
             },
             {
                 test: /\.vue$/,
-                loader: 'vue-loader',
-                options: {
-                    loaders: {}
-                }
+                use: [
+                    'cache-loader',
+                    'thread-loader',
+                    'vue-loader'
+                ],
+                // options: {
+                //     loaders: {}
+                // }
             },
 
 
@@ -38,4 +63,4 @@ module.exports = {
             'vue$': 'vue/dist/vue.esm.js'
         }
     }
-}
+})

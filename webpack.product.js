@@ -10,15 +10,15 @@ const {
 
 const terserPlugin = require('terser-webpack-plugin')
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
-const UglifyJsPlugin = require('uglify-js')
 
 
 module.exports = merge(common, {
-    entry: path.join(__dirname, './src/main.js'),
+    entry: path.resolve(__dirname, './src/main.js'),
     output: {
-        path: path.join(__dirname, 'dist-pro'),
-        filename: '[name].[contenthash:8].js',
+        path: path.resolve(__dirname, './dist-pro'),
+        filename: '[name].[hash:8].js',
         publicPath: './'
+
     },
     mode: "production",
     optimization: {
@@ -42,7 +42,7 @@ module.exports = merge(common, {
         new CleanWebpackPlugin(),
 
         new MiniCssExtractPlugin({
-            filename: "[name].[contenthash:8].css",
+            filename: '[name].[hash:8].css',
         }),
     ],
 
@@ -62,6 +62,8 @@ module.exports = merge(common, {
                 use: [
                     // 'style-loader',
                     MiniCssExtractPlugin.loader,
+                    'cache-loader',
+                    'thread-loader',
                     'css-loader',
                     'postcss-loader',
                     'sass-loader'
@@ -72,7 +74,8 @@ module.exports = merge(common, {
                 loader: 'url-loader',
                 options: {
                     limit: 1024,
-                    name: '[name].[contenthash:8].[ext]'
+                    name: '[name].[hash:8].[ext]'
+
 
 
                 }
