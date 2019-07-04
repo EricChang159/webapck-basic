@@ -12,28 +12,46 @@ const webpack = require('webpack')
 // }
 
 module.exports = merge(common, {
+    mode: "development",
     entry: path.join(__dirname, './src/main.js'),
     output: {
         path: path.join(__dirname, 'dist'),
         filename: '[name].js',
+        publicPath: './'
     },
     module: {
         rules: [{
-            test: /\.(sa|sc|c)ss$/,
-            use: [
-                'style-loader',
-                'css-loader',
-                'postcss-loader',
-                'sass-loader'
-            ]
-        }, ]
+                test: /\.(sa|sc|c)ss$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'postcss-loader',
+                    'sass-loader'
+                ]
+            },
+            {
+
+                test: /\.html$/,
+                loader: 'html-loader'
+
+            },
+            {
+                test: /\.(jpg|jpeg|png|svg|gif)$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 1024,
+                    name: '[name]-pack.[ext]'
+
+                }
+            },
+        ]
     },
     // entry: {
     //     app: './dist/index.html'
     // },
     devtool: 'inline-source-map',
     devServer: {
-        contentBase: '../webpack-thelast',
+        contentBase: './dist',
         port: 5000,
         host: '0.0.0.0',
         overlay: {

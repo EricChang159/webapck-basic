@@ -1,14 +1,15 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
-const path = require('path')
+// const path = require('path')
 
 module.exports = {
-    entry: path.join(__dirname, './src/main.js'),
-    output: {
-        path: path.join(__dirname, 'dist'),
-        filename: '[name].js',
-    },
-
+    // entry: path.join(__dirname, './src/main.js'),
+    // output: {
+    //     path: path.join(__dirname, 'dist-pro'),
+    //     filename: '[name].[hash:8].js',
+    //     publicPath: '/'
+    // },
+    mode: 'none',
     plugins: [
         new HtmlWebpackPlugin(),
         new VueLoaderPlugin()
@@ -28,19 +29,8 @@ module.exports = {
                     loaders: {}
                 }
             },
-            {
-                test: /\.(jpg|jpeg|png|svg|gif)$/,
-                loader: 'url-loader',
-                options: {
-                    limit: 1024,
-                    name: '[name].[contenthash:8].[ext]'
 
-                }
-            },
-            {
-                test: /\.html$/,
-                loader: 'html-loader'
-            }
+
         ]
     },
     resolve: {

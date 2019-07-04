@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import App from './components/app.vue'
+import './image/span2.jpg'
 import './styles/test.css'
 
 var root = document.createElement('div')
