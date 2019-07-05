@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './components/app.vue'
-import './styles/reset.css'
+// import './styles/reset.css'
 import './image/span2.jpg'
 import './styles/test.css'
 

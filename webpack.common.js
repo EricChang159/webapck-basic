@@ -49,7 +49,7 @@ module.exports = smp.wrap({
                         options: {
                             cacheDirectory: true
                         },
-                        // include: [resolve('src'), resolve('test')]
+
                     }
                 ]
 
@@ -69,9 +69,5 @@ module.exports = smp.wrap({
 
         ]
     },
-    resolve: {
-        alias: {
-            'vue$': 'vue/dist/vue.esm.js'
-        }
-    }
+
 })
