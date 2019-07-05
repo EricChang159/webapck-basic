@@ -17,6 +17,17 @@ var smp = new SpeedMeasurePlugin()
 //     filename: '[name].[hash:8]',
 //     isVue: true
 // }
+//env變數問題
+//happypack 將任務分解給多個子程式去併發執行，子程式處理完成後再將結果傳送給主程式
+//，因此能實現讓webpack同時處理多個任務，減少構建時間。
+
+//plugin filename template chunks
+// entry: {   多個入口的話
+//     JS1: "待打包JS-1",
+//     JS2: "待打包JS-2"
+// }
+//webpack-dev-middleware 搭配server.js包，建立外部server檔案
+//jsx檔 或是SASS檔test建立，目前只有基本的，外加一個vue環境
 
 
 

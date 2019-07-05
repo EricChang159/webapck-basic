@@ -61,8 +61,8 @@ module.exports = merge(common, {
                 test: /\.(sa|sc|c)ss$/,
                 use: [
                     // 'style-loader',
-                    MiniCssExtractPlugin.loader,
                     'cache-loader',
+                    MiniCssExtractPlugin.loader,
                     'thread-loader',
                     'css-loader',
                     'postcss-loader',
