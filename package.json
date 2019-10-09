@@ -8,7 +8,10 @@
     "build": "webpack --config webpack.product.js",
     "dev": "webpack  --config webpack.dev.js",
     "devServer": "webpack-dev-server --config webpack.dev.js",
-    "watch": "webpack --watch --mode development"
+    "watch": "webpack --watch --mode development",
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "generate:storybook": "build-storybook -c .storybook -o blog-storybook",
+    "plop": "plop --plopfile ./plop/index.js"
   },
   "author": "",
   "license": "ISC",
@@ -27,6 +30,7 @@
     "mini-css-extract-plugin": "^0.7.0",
     "node-sass": "^4.12.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "plop": "^2.4.0",
     "postcss": "^7.0.17",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^7.1.0",
@@ -44,6 +48,17 @@
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {
-    "url-loader": "^2.0.1"
+    "@storybook/addon-actions": "^5.2.3",
+    "@storybook/addon-centered": "^5.2.3",
+    "@storybook/addon-console": "^1.2.1",
+    "@storybook/addon-options": "^5.2.3",
+    "@storybook/addon-storysource": "^5.2.3",
+    "@storybook/addon-viewport": "^5.2.3",
+    "@storybook/addons": "^5.2.3",
+    "@storybook/vue": "^5.2.3",
+    "babel-preset-vue": "^2.0.2",
+    "storybook-readme": "^5.0.8",
+    "url-loader": "^2.0.1",
+    "vuex": "^3.1.1"
   }
 }
