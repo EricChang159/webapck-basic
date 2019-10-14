@@ -65,6 +65,12 @@ module.exports = smp.wrap({
                 //     loaders: {}
                 // }
             },
+            {
+                test: /\.stories\.js$/,
+                loaders: [require.resolve('@storybook/addon-storysource/loader.js')],
+                include: path.resolve(__dirname, './stories'),
+                enforce: 'pre'
+            }
 
 
         ]

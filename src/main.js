@@ -4,6 +4,10 @@ import App from './components/app.vue'
 import './image/span2.jpg'
 import './styles/test.css'
 
+import Axios from 'axios'
+import VueAxios from 'vue-axios'
+Vue.use(VueAxios,Axios)
+
 var root = document.createElement('div')
 document.body.appendChild(root)
 
