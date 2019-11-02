@@ -1,29 +1,28 @@
-import {action} from '@storybook/addon-actions';
 // import {linkTo} from '@storybook/addon-links';
 // import {text,boolean} from '@storybook/addon-knobs'
 
+import {action} from '@storybook/addon-actions';
 import Vue from 'vue'
-import centered from '@storybook/addon-centered/vue'
+// import centered from '@storybook/addon-centered/vue'
+// 套件配置
 import {withReadme} from 'storybook-readme'
-import README from './README.md'
-import '@storybook/addon-console'
-
-
 import {storiesOf} from '@storybook/vue';
+// import '@storybook/addon-console'
+// 組建
+import README from './README.md'
 import Mybutton from "./mybutton.vue";
 import Axios from 'axios';
+
 
 Vue.component('Mybutton', Mybutton)
 export default {
   title: 'My Button',
 }
 
-import {storysoucre} from '@storybook/addon-storysource'
-
 storiesOf('Mybutton', module)
   // .addDecorator(centered)
   .addDecorator(withReadme([README]))
-  // .add('with text', withReadme(README, () => ({
+  // .add('MOVIE', withReadme(README, () => ({
     .add('with text',  () => ({
     data() {
       return {
@@ -63,7 +62,7 @@ storiesOf('Mybutton', module)
     }
     `,
     note:README
-    })
+  })
   // }))
   .add('second', () => ({
     template: `
