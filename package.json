@@ -59,7 +59,7 @@
     "@storybook/addon-options": "^5.2.3",
     "@storybook/addon-storysource": "^5.2.3",
     "@storybook/addon-viewport": "^5.2.3",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "core-js": "^3.2.1",
     "storybook-readme": "^5.0.8",
     "typescript": "^3.6.4",
